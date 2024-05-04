@@ -1,10 +1,28 @@
+import { formatAmount } from '@/lib/utils'
 import React from 'react'
 
-const TotalBalanceBox = () => {
+const TotalBalanceBox = ({
+  accounts = [],
+  totalBanks,
+  totalCurrentBalance
+}: TotlaBalanceBoxProps) => {
   return (
-    <div>
-      
-    </div>
+    <section className="total-balance">
+      <div className="total-balance-chart">
+        {/* donut chart */}
+      </div>
+      <div className="flex flex-col gap-6">
+        <h2 className="header-2">
+          Cuentas: {totalBanks}
+        </h2>
+        <div className="flex flex-col gap-2">
+          <p className="total-balance-label">Balance total de cuentas</p>
+          <p className="total-balance-amount flex-center gap-2">
+            {formatAmount(totalCurrentBalance)}
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }
 
